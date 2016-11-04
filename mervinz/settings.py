@@ -137,15 +137,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
-if DEBUG:
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, "static")
-    ]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
+
+if static_root_config is not None and str(static_root_config) != os.path.join(BASE_DIR, "static"):
+    STATIC_ROOT = str(static_root_config)
 else:
-    if static_root_config is not None:
-        STATIC_ROOT = str(static_root_config)
-    else:
-        raise ImproperlyConfigured('Invalid \'static_root\' configuration.')
+    raise ImproperlyConfigured('Invalid \'static_root\' configuration.')
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
