@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block subtitle %}
+{{error_title}}
+{% endblock %}
+
+{% block main %}
+
+<div class="error">
+    <div class="message-box">
+        <h2 class="error-title animated-300ms zoomIn">{{error_title}}</h2>
+        <div class="error-message animated-300ms zoomIn">Oops! {{error_message}}</div>
+    </div>
+
+</div>
+
+{% endblock %}

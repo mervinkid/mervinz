@@ -1,0 +1,14 @@
+# project
+blog/migrations/*
+core/migrations/*
+config/config.yml
+# IDE software
+.idea/
+.vscode/
+
+# python
+*.pyo
+__pycache__
+
+# virtualenv
+venv/

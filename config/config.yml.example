@@ -1,0 +1,18 @@
+# postgresql database
+postgresql:
+  name:
+  user:
+  password:
+  host:
+  port:
+
+# memcached backend
+memcached:
+  host:
+  port:
+
+# debug switch
+debug:
+
+# static file path
+static_root:

@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block subtitle %}
+About
+{% endblock %}
+
+{% block main %}
+
+<section class="about" id="appAbout">
+
+    <div class="about-container">
+        <div class="head">
+            <div class="avatar animated-500ms zoomIn">
+                <img src="/static/blog/img/avatar.jpg"/>
+            </div>
+            <div class="texture animated-500ms fadeInUp">
+                <div class="name">
+                    <h4>Mervin Zhang</h4>
+                    <h5>Architecture Engineer & Indie Developer</h5>
+                </div>
+            </div>
+            <div class="contract animated-500ms fadeInUp">
+                <ul>
+                    <li><a href="mailto:mofei2816@gmail.com">Mail</a></li>
+                    <li><a href="http://github.com/mofei2816">Github</a></li>
+                    <li><a href="http://weibo.com/perfeeday">Weibo</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="content-title animated-500ms fadeInUp">
+                <h2>Experiences</h2>
+            </div>
+            <div class="time-line animated-500ms fadeInUp">
+
+                <!-- Freedom -->
+                <div class="item">
+                    <div class="company">
+                        <h4>Freedom</h4>
+                        <!--<a href="">Freedom everywhere</a>-->
+                    </div>
+                    <div class="meta">
+                        <div class="job-title">Indie Developer</div>
+                        <div class="job-time">2015.10&nbsp;-&nbsp;Now</div>
+                    </div>
+                    <div class="desc">
+                        Have a rest and looking for anther chance.
+                    </div>
+                </div>
+
+                <!-- JoinMind -->
+                <div class="item">
+                    <div class="company">
+                        <h4>JoinMind</h4>
+                        <!--<a href="http://www.joinmind.cn" target="_blank">Beijing JoinMind Information Technology Co.,Ltd</a>-->
+                    </div>
+                    <div class="meta">
+                        <div class="job-title">Architecture Engineer &</div>
+                        <div class="job-title">Technical Director &</div>
+                        <div class="job-title">Technology Partner</div>
+                        <div class="job-time">2015.10&nbsp;-&nbsp;2016.10</div>
+                    </div>
+                    <div class="desc">
+                        Member of start-up team.&nbsp;
+                        Technology partner of JoinMind.&nbsp;
+                        We provided MenKe product.&nbsp;
+                        MenKe is a social networking platform for entrepreneurial students and investors.&nbsp;
+                        I was responsible for the back-end architecture, development of MenKe product and the operation and maintenance of the entire IT architecture, AKA doing CTO things.&nbsp;<br>
+                        I build the first version of MenKe API service with Python. In order to reduce recruitment difficulties, I rewrite the API service with Java.
+                        I built a smart technology team for the company.&nbsp;
+                        We make backend system extensibility. We build Web service with Node, spider and maintenance program with Python, instant messaging service with Go language.&nbsp;<br>
+                        Cause of business strategy adjustment of our investor and the special ancient structure of our company, we stopped the MenKe product and dissolved our team.
+                    </div>
+                </div>
+
+                <!-- Tac-au-tac -->
+                <div class="item">
+                    <div class="company">
+                        <h4>Tac-au-tac</h4>
+                        <!--<a href="http://www.titac.cn" target="_blank">Beijing Tac-au-tac Technology Co.,Ltd</a>-->
+                    </div>
+                    <div class="meta">
+                        <div class="job-title">Technical Manager</div>
+                        <div class="job-time">2011.07&nbsp;-&nbsp;2015.09</div>
+                    </div>
+                    <div class="desc">
+                        Start as a software engineer and promoted to technical manager a year later.
+                        I was responsible for all technical related business of the company.
+                        Including system integration project plan, software development, system maintenance, partner selection and communication.
+                        I tried to use multiple languages for functional development in the project.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

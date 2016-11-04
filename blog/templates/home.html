@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block subtitle %}
+Home
+{% endblock %}
+
+{% block main %}
+
+<section class="home" id="appHome">
+
+    <aside class="post-sidebar">
+        <article class="filter">
+            <nav class="filter-nav">
+                <ul>
+                    <li><a class="animated-500ms fadeInUp" v-on:click="tagId = 0" v-bind:class="{selected: tagId == 0}">All</a>
+                    </li>
+                    {% for tag in tags %}
+                    <li><a class="animated-500ms fadeInUp" v-on:click="tagId = {{tag.id}}"
+                           v-bind:class="{selected: tagId == {{tag.id}} }">{{tag.title}}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </article>
+    </aside>
+
+    <section class="post-list">
+
+        {% verbatim %}
+        <section class="post-item" v-for="article in articles">
+            <article class="post-article">
+                <header class="article-header animated-500ms fadeInUp">
+                    <section class="article-header-date">{{article.publishTimeDisplay}}</section>
+                    <h2 class="article-header-title"><a v-bind:href="article.link">{{article.title}}</a></h2>
+                    <ul class="article-header-tags">
+                        <li v-for="tag in article.tags"><a href="javascript:void(0)">{{tag.title}}</a></li>
+                    </ul>
+                </header>
+                <section class="article-content animated-500ms fadeInUp" v-html="article.htmlContent">
+                </section>
+                <footer class="article-footer">
+                </footer>
+            </article>
+        </section>
+        {% endverbatim %}
+
+    </section>
+
+    {% include 'loader.html' %}
+
+    <script type="application/javascript">
+        var loadTimestamp = new Date().getTime();
+        var oldScrollTop = document.body.scrollTop;
+        var movingUp = false;
+
+        window.onscroll = function () {
+            if (movingUp) {
+                return;
+            }
+            var htmlHeight = document.documentElement.scrollHeight;
+            var clientHeight = document.documentElement.clientHeight;
+            var scrollTop = document.body.scrollTop;
+            var offset = (htmlHeight - (clientHeight + scrollTop));
+
+            if (scrollTop > oldScrollTop) {
+                // pull up
+                appFooter.showBackToTop = false;
+
+                if (offset < 10 && (new Date().getTime() - loadTimestamp) > 1500) {
+                    loadTimestamp = new Date().getTime();
+                    appHome.loadMoreData();
+                }
+            } else {
+                // pull down
+                appFooter.showBackToTop = (scrollTop > 100 && offset > 100);
+
+            }
+            oldScrollTop = scrollTop;
+        };
+
+    </script>
+
+</section>
+
+{% endblock %}
