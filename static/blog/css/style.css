@@ -75,7 +75,7 @@ hr {
     height: 0;
     overflow: visible;
     border: 0;
-    border-bottom: 2px solid #ffbf00;
+    border-bottom: 2px solid #e24329;
     margin: 1em 0;
     width: 100%
 }
@@ -267,7 +267,7 @@ h2 {
 }
 
 .header .header-inner .header-nav .nav .nav-item-current {
-    background-image: linear-gradient(#ff610f, #ff610f)
+    background-image: linear-gradient(#e24329, #e24329)
 }
 
 .header .header-inner .header-nav .nav .nav-item a {
@@ -550,7 +550,7 @@ h2 {
     background-size: 100% 1px;
     font-size: 24px !important;
     margin-bottom: .8em;
-    background-image: linear-gradient(#ec2113, #ec2113)
+    background-image: linear-gradient(#e24329, #e24329)
 }
 
 .header .header-search .search .search-inner .search-result .search-result-list .result-list-title h3 {
@@ -589,7 +589,7 @@ h2 {
 
 .main {
     background: #ffffff;
-    margin-top: 70px;
+    padding-top: 70px;
     min-height: calc(100vh - 140px);
     cursor: default;
 }
@@ -637,7 +637,7 @@ h2 {
 }
 
 .main .home .post-sidebar .filter .filter-nav li .selected {
-    color: #ec2113;
+    color: #e24329;
 }
 
 .main .home .post-sidebar .filter .filter-nav a {
@@ -860,7 +860,7 @@ h2 {
 }
 
 .main .about .content .time-line {
-    border-left: 2px solid #ff610f;
+    border-left: 2px solid #e24329;
     border-bottom-right-radius: 2px;
     border-top-right-radius: 2px;
     position: relative;
@@ -891,7 +891,7 @@ h2 {
     height: 22px;
     background-clip: padding-box;
     background: #fff;
-    border: 2px solid #ff610f;
+    border: 2px solid #e24329;
     border-radius: 50%;
 }
 
@@ -904,7 +904,7 @@ h2 {
     width: 10px;
     height: 10px;
     background-clip: padding-box;
-    background: #ff610f;
+    background: #e24329;
     border-radius: 50%;
 }
 
@@ -1002,7 +1002,7 @@ h2 {
     box-sizing: border-box;
     color: rgb(38, 38, 38);
     display: inline;
-    fill: rgb(236, 33, 19);
+    fill: #e24329;
     font-family: 'Univers LT W01 45 Light';
     font-size: 18px;
     font-weight: 200;
@@ -1058,7 +1058,7 @@ h2 {
 }
 
 .footer .back-to-top .top {
-    background: #ec2113;
+    background: #e24329;
     display: block;
     height: 40px;
     width: 50px;
