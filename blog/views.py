@@ -23,9 +23,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
+from django.http.response import Http404
 from django.shortcuts import render
 from django.views.decorators.cache import cache_page
-from django.http.response import Http404
 
 from core.services import get_articles, get_article, get_tags
 from core.utils import JsonResponse
