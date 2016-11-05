@@ -362,11 +362,11 @@ h2 {
 }
 
 .header .header-inner .header-nav .nav-burger {
-    height: 20px;
+    height: 24px;
     position: absolute;
     right: 20px;
-    top: 27.5px;
-    width: 20px;
+    top: 26px;
+    width: 24px;
     z-index: 4;
     transition: right .3s;
 }
