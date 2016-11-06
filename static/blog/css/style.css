@@ -590,7 +590,7 @@ h2 {
 .main {
     background: #ffffff;
     padding-top: 70px;
-    min-height: calc(100vh - 140px);
+    min-height: calc(100vh - 70px);
     cursor: default;
 }
 
