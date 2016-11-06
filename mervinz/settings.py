@@ -30,12 +30,11 @@ from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-CONFIG_DIR = os.path.join(BASE_DIR, 'config')
-CONFIG_FILE = os.path.join(CONFIG_DIR, 'config.yml')
-
-# load configuration
-with open(CONFIG_FILE) as config_file:
-    config = yaml.load(config_file)
+# Load configuration
+config_dir = os.path.join(BASE_DIR, 'config')
+config_file = os.path.join(config_dir, 'config.yml')
+with open(config_file) as file_data:
+    config = yaml.load(file_data)
 postgresql_config = config.get('postgresql', {})
 memcached_config = config.get('memcached', {})
 debug_config = config.get('debug')

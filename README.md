@@ -15,7 +15,7 @@ This is the blog system for [I'm Mervin](http://mervinz.me), powered on [Django]
 
 ## Authors
 
-[@Mervin](https://github.com/mofei2816) 
+**Mervin** | [Website](https://mervinz.me) | [Github](https://github.com/mofei2816) 
 
 ## License
 
