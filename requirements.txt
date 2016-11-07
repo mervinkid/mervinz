@@ -1,6 +1,7 @@
-django>=1.10.3
-python-memcached>=1.58
-markdown>=2.6.7
-psycopg2>=2.6.2
-gunicorn>=19.6.0
-PyYAML>=3.12
+django==1.10.3
+python-memcached==1.58
+markdown==2.6.7
+psycopg2==2.6.2
+gunicorn==19.6.0
+PyYAML==3.12
+aiohttp==1.1.1
