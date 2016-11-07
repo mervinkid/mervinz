@@ -89,15 +89,20 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
-    def to_dict(self):
-        return {
+    def to_dict(self, md_content=True, html_content=True):
+        md_content = md_content if isinstance(md_content, bool) else False
+        html_content = html_content if isinstance(html_content, bool) else False
+        data = {
             'content_type': 'article',
             'id': self.id,
             'title': self.title,
-            'md_content': self.md_content,
-            'html_content': self.html_content,
             'publish_time': self.publish_time.strftime('%Y-%m-%d %H:%M:%S'),
             'publish_time_display': format_publish_time(self.publish_time),
             'bgm_id': self.bgm_id,
             'tags': [tag.to_dict() for tag in self.tags.all()]
         }
+        if md_content:
+            data['md_content'] = self.md_content
+        if html_content:
+            data['html_content'] = self.html_content
+        return data
