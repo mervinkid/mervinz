@@ -1053,7 +1053,7 @@ h2 {
 
 .footer .back-to-top {
     bottom: 0;
-    left: 49%;
+    left: calc(50% - 25px);
     position: fixed;
 }
 
