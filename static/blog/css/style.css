@@ -974,12 +974,13 @@ h2 {
 
 .main .loader {
     background: #fff;
-    padding: 100px 0;
+    padding: 80px 0;
     font-family: Univers LT W01\ 45 Light;
     font-size: 18px;
     font-weight: 200;
     line-height: 1.7;
     position: relative;
+    height: 160px;
 }
 
 .main .loader div {

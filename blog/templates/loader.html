@@ -1,7 +1,7 @@
-<transition name="custom-classes-transition" enter-active-class="animated zoomIn"
-            leave-active-class="animated zoomOut">
-    <div class="loader" v-show="loading">
-        <div>
+<div class="loader">
+    <transition name="custom-classes-transition" enter-active-class="animated-300ms fadeIn"
+                leave-active-class="animated-300ms fadeOut">
+        <div v-show="loading">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.28 36.88">
                 <title>Loading</title>
                 <path d="M12.89 0l6.4 6.39-6.45 6.43-1.06-1.06 5.39-5.37-5.34-5.33L12.89 0z"></path>
@@ -9,5 +9,5 @@
                 <path d="M15.06 5.66h2.1v1.51h-2.1z"></path>
             </svg>
         </div>
-    </div>
-</transition>
+    </transition>
+</div>
