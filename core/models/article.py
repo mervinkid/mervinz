@@ -89,7 +89,7 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
-    def to_dict(self, md_content=True, html_content=True):
+    def to_dict(self, md_content=True, html_content=True, short_publish_time=False):
         md_content = md_content if isinstance(md_content, bool) else False
         html_content = html_content if isinstance(html_content, bool) else False
         data = {
@@ -97,7 +97,7 @@ class Article(models.Model):
             'id': self.id,
             'title': self.title,
             'publish_time': self.publish_time.strftime('%Y-%m-%d %H:%M:%S'),
-            'publish_time_display': format_publish_time(self.publish_time),
+            'publish_time_display': format_publish_time(self.publish_time, short_publish_time),
             'bgm_id': self.bgm_id,
             'tags': [tag.to_dict() for tag in self.tags.all()]
         }

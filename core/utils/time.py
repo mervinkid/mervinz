@@ -41,7 +41,13 @@ month_name_map = {
 }
 
 
-def format_publish_time(date):
+def format_publish_time(date, short_month_name=False):
+    if not isinstance(short_month_name, bool):
+        short_month_name = False
     if not isinstance(date, datetime):
         return ''
-    return '%s %d, %d' % (month_name_map[date.month], int(date.day), int(date.year))
+    return '%s %s, %4d' % (
+        month_name_map[date.month] if not short_month_name else month_name_map[date.month][0:3],
+        str(date.day) if int(date.day) >= 10 else '0%d' % int(date.day),
+        int(date.year)
+    )

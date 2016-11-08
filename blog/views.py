@@ -89,7 +89,7 @@ def search(request):
     articles = get_articles(1, 20, keyword=keyword)
     return JsonResponse(data={
         'success': True,
-        'articles': [article.to_dict(md_content=False) for article in articles]
+        'articles': [article.to_dict(md_content=False, short_publish_time=True) for article in articles]
     })
 
 
