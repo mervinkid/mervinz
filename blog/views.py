@@ -51,7 +51,15 @@ def post(request):
 
     return JsonResponse(data={
         'success': True,
-        'articles': [article.to_dict(md_content=False) for article in articles],
+        'articles': [
+            article.to_dict(
+                md_content=False,
+                html_content=False,
+                preview_content=True,
+                with_images=True,
+                short_publish_time=True
+            ) for article in articles
+        ],
         'page_num': page_num if len(articles) != 0 else page_num - 1,
         'page_size': page_size
     })
@@ -66,7 +74,7 @@ def post_detail(request, article_id):
 
     return render(request, 'post.html', {
         'current': 'home',
-        'article': article.to_dict(md_content=False)
+        'article': article.to_dict(md_content=False, preview_content=False, html_content=True)
     })
 
 
@@ -89,7 +97,14 @@ def search(request):
     articles = get_articles(1, 20, keyword=keyword)
     return JsonResponse(data={
         'success': True,
-        'articles': [article.to_dict(md_content=False, short_publish_time=True) for article in articles]
+        'articles': [
+            article.to_dict(
+                md_content=False,
+                html_content=False,
+                preview_content=False,
+                short_publish_time=True
+            ) for article in articles
+        ]
     })
 
 

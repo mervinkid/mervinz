@@ -105,7 +105,7 @@ var appHome = new Vue({
                         article.link = '/post/' + articleItem['id'];
                         article.title = articleItem['title'];
                         article.publishTimeDisplay = articleItem['publish_time_display'];
-                        article.htmlContent = articleItem['html_content'];
+                        article.previewContent = articleItem['preview_content'];
                         article.hasBGM = articleItem['bgm_id'] != null && articleItem['bgm_id'] != '';
                         article.tags = [];
                         var tagList = articleItem['tags'];
@@ -113,6 +113,14 @@ var appHome = new Vue({
                             var tag = Object();
                             tag.title = tagItem['title'];
                             article.tags.push(tag);
+                        });
+                        article.images = [];
+                        var imageList = articleItem['images'];
+                        imageList.forEach(function (imageItem) {
+                           var image = Object();
+                            image.id = imageItem['id'];
+                            image.url = imageItem['url'];
+                            article.images.push(image);
                         });
                         self.articles.push(article);
                     });

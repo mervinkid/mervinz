@@ -23,27 +23,42 @@ Home
         </article>
     </aside>
 
-    <section class="post-list">
-
+    <div class="post-container">
         {% verbatim %}
-        <section class="post-item" v-for="article in articles">
-            <article class="post-article">
-                <header class="article-header animated-500ms fadeInUp">
-                    <section class="article-header-date">{{article.publishTimeDisplay}}</section>
-                    <h2 class="article-header-title"><a v-bind:href="article.link">{{article.title}}</a></h2>
-                    <ul class="article-header-tags">
-                        <li v-for="tag in article.tags"><a href="javascript:void(0)">{{tag.title}}</a></li>
-                    </ul>
-                </header>
-                <section class="article-content animated-500ms fadeInUp" v-html="article.htmlContent">
-                </section>
-                <footer class="article-footer">
-                </footer>
-            </article>
-        </section>
-        {% endverbatim %}
+        <div class="feed-list">
+            <div class="time-line">
+                <a>
+                    <div class="item">
+                        <div class="meta">
+                            <div class="publish-time">Now</div>
+                        </div>
+                        <div class="text-content">
+                        </div>
+                    </div>
+                </a>
+                <a v-for="article in articles" v-bind:href="article.link">
+                    <div class="item animated-500ms fadeInUp">
+                        <div class="title">
+                            <h4>{{article.title}}</h4>
+                        </div>
+                        <div class="meta">
+                            <div class="publish-time">{{article.publishTimeDisplay}}</div>
+                        </div>
+                        <div class="text-content" v-html="article.previewContent">
+                        </div>
+                        <div class="image-content">
+                            <div class="image-item"
+                                 v-for="image in article.images"
+                                 v-bind:style="{backgroundImage: 'url(' + image.url + ')'}"
+                            ></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
-    </section>
+        </div>
+        {% endverbatim %}
+    </div>
 
     {% include 'loader.html' %}
 
