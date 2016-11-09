@@ -28,10 +28,11 @@ from django.shortcuts import render
 from django.views.decorators.cache import cache_page
 
 from core.services import get_articles, get_article, get_tags
-from core.utils import JsonResponse
+from core.utils import JsonResponse, require_method
 
 
 @cache_page(60 * 5)
+@require_method('GET')
 def home(request):
     return render(request, 'home.html', {
         'current': 'home',
@@ -40,6 +41,7 @@ def home(request):
 
 
 @cache_page(60 * 5)
+@require_method('GET')
 def post(request):
     page_num = int(request.GET.get('page_num', 1))
     page_num = page_num if page_num > 0 else 1
@@ -66,6 +68,7 @@ def post(request):
 
 
 @cache_page(60 * 15)
+@require_method('GET')
 def post_detail(request, article_id):
     article = get_article(article_id=int(article_id))
 
@@ -79,6 +82,7 @@ def post_detail(request, article_id):
 
 
 @cache_page(60 * 15)
+@require_method('GET')
 def about(request):
     return render(request, 'about.html', {
         'current': 'about'
@@ -86,6 +90,7 @@ def about(request):
 
 
 @cache_page(60 * 5)
+@require_method('GET')
 def search(request):
     keyword = request.GET.get('keyword', '')
     if not isinstance(keyword, str) or len(keyword.strip()) < 2:
