@@ -954,6 +954,7 @@ h2 {
 }
 
 .main .about .head .contract {
+    font-family: Univers LT W01\ 45 Light;
     justify-content: center;
     display: flex;
     padding: 10px 0;
@@ -967,7 +968,7 @@ h2 {
 
 .main .about .head .contract ul li {
     display: flex;
-    font-size: 12px;
+    font-size: 14px;
     padding: 0 20px;
     position: relative;
 }
@@ -1083,6 +1084,7 @@ h2 {
 .main .about .content .time-line .item .desc {
     font-size: 14px;
     font-family: Univers LT W01\ 45 Light;
+    color: #666666;
 }
 
 .main .error {
@@ -1121,7 +1123,7 @@ h2 {
     height: 120px;
 }
 
-.main .loader div {
+.main .loader .circle {
     color: rgb(38, 38, 38);
     display: block;
     font-family: 'Univers LT W01 45 Light';
@@ -1136,7 +1138,7 @@ h2 {
     margin: 0 0 1.2em;
 }
 
-.main .loader svg {
+.main .loader .circle svg {
     animation: loading 0.5s linear infinite;
     box-sizing: border-box;
     color: rgb(38, 38, 38);
@@ -1151,6 +1153,11 @@ h2 {
     overflow-y: hidden;
     transform-origin: 15.5px 21.1875px;
     width: 31px;
+}
+
+.main .loader .no-more-content {
+    font-size: 14px;
+    text-align: center;
 }
 
 @keyframes loading {

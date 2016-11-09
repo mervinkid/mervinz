@@ -24,7 +24,7 @@ SOFTWARE.
 """
 
 from django.db import models
-from markdown import markdown
+from mistune import markdown
 from bs4 import BeautifulSoup
 
 from core.utils import format_publish_time
