@@ -17,7 +17,6 @@ body {
     font-family: Univers LT W01\ 55 Roman, sans-serif;
     height: 100%;
     line-height: 1.5;
-    margin: 0;
     overflow-y: scroll;
     padding: 0;
     -webkit-text-size-adjust: none;
@@ -126,7 +125,6 @@ button {
 }
 
 button:focus {
-    outline: 1px dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline: none;
 }
@@ -279,7 +277,6 @@ h2 {
     background-color: rgba(0, 0, 0, 0);
     box-sizing: border-box;
     color: rgb(0, 0, 0);
-    cursor: auto;
     display: flex;
     text-align: left;
     text-decoration: none;
@@ -1213,67 +1210,6 @@ h2 {
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-}
-
-.footer .back-to-top-init {
-    height: 0;
-    opacity: 0;
-}
-
-.footer .back-to-top-show {
-    opacity: 1;
-    height: 40px;
-    animation: back-to-top-show;
-    animation-duration: 300ms;
-}
-
-.footer .back-to-top-hide {
-    opacity: 0;
-    height: 0;
-    animation: back-to-top-hide;
-    animation-duration: 300ms;
-}
-
-@keyframes back-to-top-show {
-    0% {
-        height: 0;
-        opacity: 0;
-    }
-    20% {
-        height: 40px;
-        opacity: 0.1;
-    }
-    100% {
-        height: 40px;
-        opacity: 1;
-    }
-}
-
-@keyframes back-to-top-hide {
-    0% {
-        height: 40px;
-        opacity: 1;
-    }
-    80% {
-        height: 40px;
-        opacity: 0.1;
-    }
-    100% {
-        height: 0;
-        opacity: 0;
-    }
-}
-
-@keyframes app-load {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.8;
-    }
-    100% {
-        opacity: 1;
-    }
 }
 
 .animated-300ms {
