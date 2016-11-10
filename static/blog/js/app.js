@@ -170,14 +170,15 @@ var movingSwitchLine = 0;
 smoothMoveUp = function () {
 
     if (!movingUp) {
-        movingSwitchLine = document.body.scrollTop / 3;
+        movingSwitchLine = (document.body.scrollTop || document.documentElement.scrollTop) / 3;
     }
 
     movingUp = true;
 
-    if (document.body.scrollTop >= (20 + movingOffset)) {
-        document.body.scrollTop = document.body.scrollTop - (20 + movingOffset);
-        if (document.body.scrollTop >= movingSwitchLine) {
+    if ((document.body.scrollTop || document.documentElement.scrollTop) >= (20 + movingOffset)) {
+        document.body.scrollTop -= 20 + movingOffset;
+        document.documentElement.scrollTop -= 20 + movingOffset;
+        if ((document.body.scrollTop || document.documentElement.scrollTop) >= movingSwitchLine) {
             movingOffset = movingOffset + 5;
         } else {
             movingOffset = movingOffset - 5;
@@ -185,6 +186,7 @@ smoothMoveUp = function () {
         setTimeout('smoothMoveUp()', 5);
     } else {
         document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
         movingUp = false;
         movingOffset = 0;
         movingSwitchLine = 0;
