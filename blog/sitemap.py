@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 The MIT License (MIT)
 
@@ -23,26 +23,31 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from django.conf import urls
-from django.conf.urls import url, include
-from django.contrib import admin
-from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps import Sitemap
+from django.urls import reverse
 
-from blog import urls as blog_urls
-from blog.sitemap import BlogSitemap, StaticSitemap
+from core.models import Article
+from . import views
 
 
-sitemaps = {
-    'blog': BlogSitemap,
-    'static': StaticSitemap
-}
+class BlogSitemap(Sitemap):
+    changefreq = 'daily'
+    priority = 0.5
+    limit = 20
 
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
-        name='django.contrib.sitemaps.views.sitemap'),
-    url(r'^', include(blog_urls)),
-]
+    def items(self):
+        return Article.objects.all().order_by('-publish_time')[0:20]
 
-urls.handler404 = 'blog.views.handler404'
-urls.handler500 = 'blog.views.handler500'
+    def lastmod(self, obj):
+        return obj.publish_time
+
+
+class StaticSitemap(Sitemap):
+    changefreq = 'month'
+    priority = 0.5
+
+    def items(self):
+        return [views.about]
+
+    def location(self, item):
+        return reverse(item)

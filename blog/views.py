@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from django.http.response import Http404
+from django.http.response import Http404, HttpResponse
 from django.shortcuts import render
 from django.views.decorators.cache import cache_page
 
@@ -61,7 +61,7 @@ def post(request):
                 with_images=True,
                 short_publish_time=True
             ) for article in articles
-        ],
+            ],
         'page_num': page_num if len(articles) != 0 else page_num - 1,
         'page_size': page_size
     })
@@ -109,7 +109,7 @@ def search(request):
                 preview_content=False,
                 short_publish_time=True
             ) for article in articles
-        ]
+            ]
     })
 
 
@@ -130,4 +130,17 @@ def handler500(request):
         'error_message': 'Is there any problem with my code? No, I do not admit! Never!'
     })
     response.status_code = 500
+    return response
+
+
+@cache_page(60 * 15)
+def robots_txt(request):
+    content = 'User-agent: *\n' \
+              'Disallow: /admin/*\n' \
+              'Sitemap: https://mervinz.me/sitemap.xml\n'
+    response = HttpResponse()
+    response.status_code = 200
+    response.charset = 'utf-8'
+    response['Content-Type'] = 'text/plain; charset=UTF-8'
+    response.write(content)
     return response

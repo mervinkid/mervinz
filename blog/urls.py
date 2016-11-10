@@ -26,6 +26,7 @@ SOFTWARE.
 from django.conf.urls import url
 
 from blog import views as blog_view
+from mervinz import settings
 
 urlpatterns = [
     url(r'^$', blog_view.home),
@@ -33,5 +34,9 @@ urlpatterns = [
     url(r'^post/(\d+)/$', blog_view.post_detail),
     url(r'^about/$', blog_view.about),
     url(r'^search/$', blog_view.search),
-    url(r'^test/$', blog_view.handler500)
+    url(r'^robots\.txt$', blog_view.robots_txt)
 ]
+
+if settings.DEBUG:
+    urlpatterns.append(url(r'^404/$', blog_view.handler404))
+    urlpatterns.append(url(r'^500/$', blog_view.handler500))

@@ -159,6 +159,8 @@ class Article(models.Model):
             data['images'] = [image.to_dict() for image in list(self.images.all().order_by('id')[0:max_images])]
         return data
 
+    def get_absolute_url(self):
+        return '/post/%d' % self.id
 
 class ArticleImage(models.Model):
     # id
