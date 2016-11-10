@@ -87,5 +87,4 @@ def get_tags(count=2):
     if not isinstance(count, int):
         count = 2
     tags = Tag.objects.all().order_by('id')[0:count]
-    print(tags.query)
     return list(tags)

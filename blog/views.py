@@ -142,5 +142,5 @@ def robots_txt(request):
     response.status_code = 200
     response.charset = 'utf-8'
     response['Content-Type'] = 'text/plain; charset=UTF-8'
-    response.write(content)
+    response.write(content.encode(encoding='utf-8'))
     return response

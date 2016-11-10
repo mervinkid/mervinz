@@ -23,23 +23,33 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
+from datetime import datetime
 from django.contrib.sitemaps import Sitemap
+from django.db import connection
 from django.urls import reverse
 
-from core.models import Article
 from . import views
 
 
 class BlogSitemap(Sitemap):
     changefreq = 'daily'
     priority = 0.5
-    limit = 20
 
     def items(self):
-        return Article.objects.all().order_by('-publish_time')[0:20]
+        sql = 'SELECT core_article.id, core_article.publish_time ' \
+              'FROM core_article AS core_article ' \
+              'ORDER BY core_article.publish_time DESC '
+        with connection.cursor() as cursor:
+            cursor.execute(sql)
+            rows = cursor.fetchall()
+
+        return rows
 
     def lastmod(self, obj):
-        return obj.publish_time
+        return obj[1]
+
+    def location(self, obj):
+        return '/post/%d' % obj[0]
 
 
 class StaticSitemap(Sitemap):
@@ -48,6 +58,9 @@ class StaticSitemap(Sitemap):
 
     def items(self):
         return [views.about]
+
+    def lastmod(self, obj):
+        return datetime.now()
 
     def location(self, item):
         return reverse(item)
