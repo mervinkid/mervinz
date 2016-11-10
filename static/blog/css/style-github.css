@@ -367,6 +367,9 @@
     max-width: 100%;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    padding: 6px;
+    background: white;
+    box-shadow: #cccccc 0 0 8px 0;
 }
 
 .article-content code {

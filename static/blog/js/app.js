@@ -144,12 +144,6 @@ var appHome = new Vue({
     }
 });
 
-/* appAbout */
-var appAbout = new Vue({
-    el: '#appAbout',
-    data: {}
-});
-
 /*
  * Convert body of vue response to json object
  */
@@ -168,13 +162,10 @@ var movingUp = false;
 var movingOffset = 0;
 var movingSwitchLine = 0;
 smoothMoveUp = function () {
-
     if (!movingUp) {
         movingSwitchLine = (document.body.scrollTop || document.documentElement.scrollTop) / 3;
     }
-
     movingUp = true;
-
     if ((document.body.scrollTop || document.documentElement.scrollTop) >= (20 + movingOffset)) {
         document.body.scrollTop -= 20 + movingOffset;
         document.documentElement.scrollTop -= 20 + movingOffset;
@@ -192,6 +183,5 @@ smoothMoveUp = function () {
         movingSwitchLine = 0;
         appFooter.showBackToTop = false;
     }
-
 };
 

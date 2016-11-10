@@ -269,7 +269,7 @@ h2 {
 }
 
 .header .header-inner .header-nav .nav .nav-item a {
-    cursor: auto;
+    cursor: pointer;
     font-family: 'Univers LT W01 45 Light';
     font-size: 14px;
     padding: 4px 22px;
@@ -761,20 +761,24 @@ h2 {
 }
 
 .main .home .feed-list .time-line .item .image-content .image-item {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 4px;
+    background: white;
+    box-shadow: #cccccc 0 0 8px 0;
+}
+
+.main .home .feed-list .time-line .item .image-content .image-item .image-box {
     background: center no-repeat;
     background-size: cover;
     width: 220px;
     height: 165px;
-    display: inline-block;
-    border: 2px solid #f5f5f5;
-    border-radius: 6px;
-    margin-right: 5px;
 }
 
 @media (min-width: 768px) {
-    .main .home .feed-list .time-line .item .image-content .image-item {
-        width: 160px;
-        height: 120px;
+    .main .home .feed-list .time-line .item .image-content .image-item .image-box {
+        width: 180px;
+        height: 135px;
     }
 }
 

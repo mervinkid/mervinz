@@ -47,10 +47,9 @@ Home
                         <div class="text-content" v-html="article.previewContent">
                         </div>
                         <div class="image-content">
-                            <div class="image-item"
-                                 v-for="image in article.images"
-                                 v-bind:style="{backgroundImage: 'url(' + image.url + ')'}"
-                            ></div>
+                            <div class="image-item" v-for="image in article.images">
+                                <div class="image-box" v-bind:style="{backgroundImage: 'url(' + image.url + ')'}"></div>
+                            </div>
                         </div>
                     </div>
                 </a>
