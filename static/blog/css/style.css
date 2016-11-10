@@ -692,7 +692,7 @@ h2 {
 .main .home .feed-list .time-line .item:before {
     content: "";
     position: absolute;
-    left: -43px;
+    left: -42px;
     top: 0;
     display: inline-block;
     width: 22px;
@@ -706,7 +706,7 @@ h2 {
 .main .home .feed-list .time-line .item:after {
     content: "";
     position: absolute;
-    left: -37px;
+    left: -36px;
     top: 6px;
     display: inline-block;
     width: 10px;
