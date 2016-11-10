@@ -73,7 +73,7 @@ Home
             }
             var htmlHeight = document.documentElement.scrollHeight;
             var clientHeight = document.documentElement.clientHeight;
-            var scrollTop = document.body.scrollTop;
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
             var offset = (htmlHeight - (clientHeight + scrollTop));
 
             if (scrollTop > oldScrollTop) {
