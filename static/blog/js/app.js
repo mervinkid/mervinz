@@ -17,7 +17,7 @@ var appHeader = new Vue({
             if (this.searchText.length > 2) {
 
                 var self = this;
-                var url = '/search?keyword=' + encodeURI(self.searchText);
+                var url = '/search/?keyword=' + encodeURI(self.searchText);
                 this.$http.get(url).then(
                     function (res) {
                         res = jsonVueResourceResponse(res);
@@ -26,7 +26,7 @@ var appHeader = new Vue({
                         self.searchResult = [];
                         articles.forEach(function (item) {
                             self.searchResult.push({
-                                link: '/post/' + item['id'],
+                                link: '/post/' + item['id'] + '/',
                                 publishTimeDisplay: item['publish_time_display'],
                                 title: item['title']
                             })
@@ -89,7 +89,7 @@ var appHome = new Vue({
                 return;
             }
             self.loading = true;
-            var url = '/post?page_num=' + (self.pageNum + 1) + '&page_size=5&tag_id=' + self.tagId;
+            var url = '/post/?page_num=' + (self.pageNum + 1) + '&page_size=5&tag_id=' + self.tagId;
             this.$http.get(url).then(
                 function (res) {
                     res = jsonVueResourceResponse(res);
@@ -102,7 +102,7 @@ var appHome = new Vue({
                     }
                     articles.forEach(function (articleItem) {
                         var article = Object();
-                        article.link = '/post/' + articleItem['id'];
+                        article.link = '/post/' + articleItem['id'] + '/';
                         article.title = articleItem['title'];
                         article.publishTimeDisplay = articleItem['publish_time_display'];
                         article.previewContent = articleItem['preview_content'];
