@@ -107,9 +107,9 @@ class Article(models.Model):
         preview_len = 0
         preview_paragraph = 0
         for p_item in p_list:
-            p_item_string_len = len(p_item.string.strip()) if isinstance(p_item.string, str) else 0
+            p_item_string_len = len(p_item.get_text().strip()) if isinstance(p_item.get_text(), str) else 0
             if p_item_string_len > 0:
-                preview += str(p_item)
+                preview += '<p>%s</p>' % p_item.get_text()
                 preview_len += p_item_string_len
                 preview_paragraph += 1
             if preview_len > 200 or preview_paragraph >= 5:

@@ -1,3 +1,4 @@
+pip==9.0.1
 django==1.10.3
 python-memcached==1.58
 mistune==0.7.3
