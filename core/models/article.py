@@ -24,9 +24,10 @@ SOFTWARE.
 """
 
 from django.db import models
-from mistune import markdown
+from mistune import Markdown
 from bs4 import BeautifulSoup
 
+from core.utils import BlogContentRenderer
 from core.utils import format_publish_time
 from .misc import Tag
 
@@ -99,6 +100,7 @@ class Article(models.Model):
 
     def save(self, *args, **kwargs):
         # markdown to html
+        markdown = Markdown(renderer=BlogContentRenderer())
         self.html_content = markdown(self.md_content)
         # preview content
         bs = BeautifulSoup(self.html_content, 'html.parser')
@@ -161,6 +163,7 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return '/post/%d' % self.id
+
 
 class ArticleImage(models.Model):
     # id

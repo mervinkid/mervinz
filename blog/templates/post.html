@@ -9,11 +9,9 @@
 {% endblock %}
 
 {% block main %}
-
+<link rel="stylesheet" href="/static/blog/css/highlight.css" />
 <section class="article" id="appPost">
-
     <section class="post-list">
-
         <section class="post-item" v-for="article in articles">
             <article class="post-article">
                 <header class="article-header animated-500ms fadeInUp">
@@ -32,17 +30,13 @@
                 </section>
                 <footer class="article-footer">
                 </footer>
-
                 {% if article.bgm_id %}
                 <iframe style="display: none"
                         src="https://music.163.com/outchain/player?type=2&id={{article.bgm_id}}&auto=1&height=32"></iframe>
                 {% endif %}
             </article>
-
         </section>
-
     </section>
-
     <script type="application/javascript">
         var oldScrollTop = document.body.scrollTop;
         var movingUp = false;
@@ -67,7 +61,6 @@
             oldScrollTop = scrollTop;
         };
     </script>
-
 </section>
 
 {% endblock %}
