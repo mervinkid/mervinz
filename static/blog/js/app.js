@@ -80,7 +80,7 @@ var appHome = new Vue({
         root: '/'
     },
     created: function () {
-        setTimeout('appHome.loadMoreData()', 100);
+        this.loadMoreData();
     },
     methods: {
         loadMoreData: function () {
