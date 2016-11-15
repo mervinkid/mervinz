@@ -97,6 +97,7 @@ class Article(models.Model):
 
     class Meta(object):
         db_table = 'core_article'
+        verbose_name_plural = 'Article'
 
     def save(self, *args, **kwargs):
         # markdown to html
@@ -190,6 +191,7 @@ class ArticleImage(models.Model):
 
     class Meta:
         db_table = 'core_article_image'
+        verbose_name_plural = 'Article Image'
 
     def to_dict(self):
         return {

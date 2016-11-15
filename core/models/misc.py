@@ -41,6 +41,7 @@ class Tag(models.Model):
 
     class Meta:
         db_table = 'core_tag'
+        verbose_name_plural = 'Tag'
 
     def __str__(self):
         return self.title

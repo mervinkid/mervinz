@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 """
 The MIT License (MIT)
 
@@ -24,31 +23,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from django.contrib import admin
-
-from core.models import Article, Tag, Friend
+from core.models import Friend
 
 
-class BaseModelAdmin(admin.ModelAdmin):
-    empty_value_display = 'N/A'
-
-
-class ArticleAdmin(BaseModelAdmin):
-    model = Article
-    ordering = ['-publish_time']
-    list_display = ['title', 'bgm_id', 'publish_time']
-
-
-class TagAdmin(BaseModelAdmin):
-    model = Tag
-    ordering = ['id']
-    list_display = ['id', 'title']
-
-
-class FriendAdmin(BaseModelAdmin):
-    model = Friend
-
-
-admin.site.register(Article, ArticleAdmin)
-admin.site.register(Tag, TagAdmin)
-admin.site.register(Friend, FriendAdmin)
+def get_friends():
+    return Friend.objects.all().order_by('name')

@@ -76,7 +76,6 @@ About
                         company, we stopped the MenKe product and dissolved our team.
                     </div>
                 </div>
-
                 <!-- Tac-au-tac -->
                 <div class="item">
                     <div class="company">
@@ -96,7 +95,22 @@ About
                     </div>
                 </div>
             </div>
+        </div>
 
+        <div class="content">
+            <div class="content-title animated-500ms fadeInUp">
+                <h2>Friends</h2>
+            </div>
+            <div class="friend-list">
+                {% for friend in friends %}
+                <a href="{{friend.link}}" target="_blank">
+                    <div class="friend-item">
+                        <div class="avatar animated-500ms zoomIn" style="background-image: url({{friend.avatar}})"></div>
+                        <div class="name animated-500ms fadeInUp">{{friend.name}}</div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
         </div>
 
     </div>

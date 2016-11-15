@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 """
 The MIT License (MIT)
 
@@ -24,31 +23,55 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from django.contrib import admin
-
-from core.models import Article, Tag, Friend
+from django.db import models
 
 
-class BaseModelAdmin(admin.ModelAdmin):
-    empty_value_display = 'N/A'
+class Friend(models.Model):
 
+    id = models.AutoField(
+        db_column='id',
+        primary_key=True,
+        unique=True,
+        editable=False,
+        verbose_name='ID'
+    )
 
-class ArticleAdmin(BaseModelAdmin):
-    model = Article
-    ordering = ['-publish_time']
-    list_display = ['title', 'bgm_id', 'publish_time']
+    name = models.CharField(
+        db_column='name',
+        max_length=32,
+        null=False,
+        blank=False,
+        verbose_name='Name'
+    )
 
+    link = models.CharField(
+        db_column='link',
+        max_length=256,
+        blank=True,
+        null=True,
+        default='',
+        verbose_name='Link'
+    )
 
-class TagAdmin(BaseModelAdmin):
-    model = Tag
-    ordering = ['id']
-    list_display = ['id', 'title']
+    avatar = models.CharField(
+        db_column='avatar',
+        max_length=256,
+        blank=False,
+        null=False,
+        verbose_name='Avatar'
+    )
 
+    class Meta:
+        db_table = 'core_friend'
+        verbose_name_plural = 'Friend'
 
-class FriendAdmin(BaseModelAdmin):
-    model = Friend
+    def __str__(self):
+        return self.name
 
-
-admin.site.register(Article, ArticleAdmin)
-admin.site.register(Tag, TagAdmin)
-admin.site.register(Friend, FriendAdmin)
+    def to_dict(self):
+        return {
+            'content_type': 'friend',
+            'name': self.name,
+            'link': self.link,
+            'avatar': self.avatar
+        }

@@ -27,7 +27,7 @@ from django.http.response import Http404, HttpResponse
 from django.shortcuts import render
 from django.views.decorators.cache import cache_page
 
-from core.services import get_articles, get_article, get_tags
+from core.services import get_articles, get_article, get_tags, get_friends
 from core.utils import JsonResponse, require_method
 
 
@@ -84,8 +84,11 @@ def post_detail(request, article_id):
 @cache_page(60 * 15)
 @require_method('GET')
 def about(request):
+    # get friends
+    friends = get_friends()
     return render(request, 'about.html', {
-        'current': 'about'
+        'current': 'about',
+        'friends': [friend.to_dict() for friend in friends]
     })
 
 
