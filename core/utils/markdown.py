@@ -31,6 +31,16 @@ from mistune import Renderer
 
 
 class BlogContentRenderer(Renderer):
+    """
+    Markdown renderer for article rich-text content.
+    This renderer improve following features:
+    - Syntax highlight for <code> block.
+    - Lazy load of vue-lazyload library for <img> tag.
+    """
+
+    def __init__(self, **kwargs):
+        super(BlogContentRenderer, self).__init__(**kwargs)
+
     def block_code(self, code, lang=None):
         if not lang:
             return super(BlogContentRenderer, self).block_code(code, lang)
