@@ -26,7 +26,14 @@ SOFTWARE.
 
 from django.contrib import admin
 
-from core.models import Article, Tag, Friend
+from core.models import Article, Tag, Friend, Career
+
+
+def display_tags(obj):
+    if not isinstance(obj, Article):
+        return ''
+    tags = obj.tags.all().order_by('id')
+    return ', '.join([tag.title for tag in tags])
 
 
 class BaseModelAdmin(admin.ModelAdmin):
@@ -36,7 +43,7 @@ class BaseModelAdmin(admin.ModelAdmin):
 class ArticleAdmin(BaseModelAdmin):
     model = Article
     ordering = ['-publish_time']
-    list_display = ['title', 'bgm_id', 'publish_time']
+    list_display = ['title', 'bgm_id', display_tags, 'publish_time']
 
 
 class TagAdmin(BaseModelAdmin):
@@ -49,6 +56,13 @@ class FriendAdmin(BaseModelAdmin):
     model = Friend
 
 
+class CareerAdmin(BaseModelAdmin):
+    model = Career
+    ordering = ['-start']
+    list_display = ['company', 'job', 'start', 'end']
+
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Friend, FriendAdmin)
+admin.site.register(Career, CareerAdmin)

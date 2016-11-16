@@ -23,8 +23,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from core.models import Friend
+from core.models import Friend, Career
 
 
 def get_friends():
     return Friend.objects.all().order_by('name')
+
+
+def get_careers():
+    return Career.objects.all().order_by('-start')

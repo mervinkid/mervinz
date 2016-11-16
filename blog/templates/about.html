@@ -34,66 +34,23 @@ About
             </div>
             <div class="time-line animated-500ms fadeInUp">
 
-                <!-- Freedom -->
+                {% for career in careers %}
                 <div class="item">
                     <div class="company">
-                        <h4>Freedom</h4>
+                        <h4>{{ career.company }}</h4>
                         <!--<a href="">Freedom everywhere</a>-->
                     </div>
                     <div class="meta">
-                        <div class="job-title">Indie Developer</div>
-                        <div class="job-time">2016.10&nbsp;-&nbsp;Now</div>
+                        {% for job in career.jobs %}
+                        <div class="job-title">{{ job }}</div>
+                        {% endfor %}
+                        <div class="job-time">{{ career.start }}&nbsp;-&nbsp;{{ career.end }}</div>
                     </div>
                     <div class="desc">
-                        Have a rest and do some travel.
+                        {{ career.desc }}
                     </div>
                 </div>
-
-                <!-- JoinMind -->
-                <div class="item">
-                    <div class="company">
-                        <h4>JoinMind</h4>
-                        <!--<a href="http://www.joinmind.cn" target="_blank">Beijing JoinMind Information Technology Co.,Ltd</a>-->
-                    </div>
-                    <div class="meta">
-                        <div class="job-title">Architecture Engineer</div>
-                        <div class="job-title">Technical Director</div>
-                        <div class="job-time">2015.10&nbsp;-&nbsp;2016.10</div>
-                    </div>
-                    <div class="desc">
-                        Member of start-up team.&nbsp;
-                        Technology partner of JoinMind.&nbsp;
-                        We provided MenKe product.&nbsp;
-                        MenKe is a social networking platform for entrepreneurial students and investors.&nbsp;
-                        I was responsible for the back-end architecture, development of MenKe product and the operation
-                        and maintenance of the entire IT architecture, AKA just like a CTO and doing things.&nbsp;<br>
-                        I build the first version of MenKe API service with Python. In order to reduce recruitment
-                        difficulties, I rewrite the API service with Java.
-                        I built a smart technology team for the company.&nbsp;
-                        We make backend system extensibility. We build Web service with Node, spider and maintenance
-                        program with Python, instant messaging service with Go language.&nbsp;<br>
-                        Cause of business strategy adjustment of our investor and the special ancient structure of our
-                        company, we stopped the MenKe product and dissolved our team.
-                    </div>
-                </div>
-                <!-- Tac-au-tac -->
-                <div class="item">
-                    <div class="company">
-                        <h4>Tac-au-tac</h4>
-                        <!--<a href="http://www.titac.cn" target="_blank">Beijing Tac-au-tac Technology Co.,Ltd</a>-->
-                    </div>
-                    <div class="meta">
-                        <div class="job-title">Technical Manager</div>
-                        <div class="job-time">2011.07&nbsp;-&nbsp;2015.09</div>
-                    </div>
-                    <div class="desc">
-                        Start as a software engineer and promoted to technical manager two years later.
-                        I was responsible for all technical related business of the company.
-                        Including system integration project plan, software development, system maintenance, partner
-                        selection and communication.
-                        I tried to use multiple languages for functional development in projects.
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
 
