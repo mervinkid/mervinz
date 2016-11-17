@@ -1,9 +1,14 @@
-# immz
+# mervinz
 
 ![Python](https://img.shields.io/badge/Python-3.5-orange.svg?style=flat&maxAge=2592000)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat&maxAge=2592000)
 
 This is the blog system for [I'm Mervin](http://mervinz.me), powered on [Django](https://www.djangoproject.com) and [Vue.js](https://vuefe.cn).
+
+## Dependencies
+
+Backend based on Python 3 and PostgreSQL.<br>
+For detail see [requirements.txt](requirements.txt) 
 
 ## Contributing
 
