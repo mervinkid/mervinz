@@ -79,7 +79,7 @@ Home
                 // pull up
                 appFooter.showBackToTop = false;
 
-                if (offset < 10 && (new Date().getTime() - loadTimestamp) > 1500) {
+                if (offset < 50 && (new Date().getTime() - loadTimestamp) > 1500) {
                     loadTimestamp = new Date().getTime();
                     appHome.loadMoreData();
                 }
