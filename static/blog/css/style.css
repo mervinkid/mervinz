@@ -1,9 +1,5 @@
 /* basic */
 
-* {
-    transition: all 0.3s;
-}
-
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -676,6 +672,7 @@ h2 {
     padding: 0 0 0 30px;
     margin-left: 0;
     display: block;
+    transition: all 0.3s;
 }
 
 @media (min-width: 768px) {
@@ -1023,6 +1020,7 @@ h2 {
     padding: 0 0 0 30px;
     margin-left: 0;
     display: block;
+    transition: all 0.3s;
 }
 
 @media (min-width: 768px) {
